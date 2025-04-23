@@ -13,21 +13,13 @@ class JarbasClient(discord.Client):
     async def on_ready(self):
         print(f'{self.user} has connected to {discord.utils.get(self.guilds, name=GUILD)}')
 
-# client = JarbasClient(intents=discord.Intents.all())
-#
-# @client.event
-# async def on_member_join(member):
-#     await member.create.dm()
-#     await member.dm_channel.send(f'Fala {member.name}!, Se esta lendo isso que dizer que deu bom!')
-#
-# @client.event
-# async def on_message(message):
-#     if message.author == client.user:
-#         return
-#     if message.content == 'ping':
-#         await message.channel.send('pong')
 
 bot = commands.Bot(command_prefix="/", intents=discord.Intents.all())
+
+@bot.event
+async def on_member_join(member):
+    await member.create_dm()
+    await member.dm_channel.send(f'Fala {member.name}!, Se esta lendo isso que dizer que deu bom!')
 
 
 @bot.event
@@ -40,6 +32,3 @@ async def ping(ctx):
 
 bot.run(TOKEN)
 
-
-
-client.run(TOKEN)
