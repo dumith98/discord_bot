@@ -22,5 +22,3 @@ cursor.execute('select * from  user_table;')
 print(cursor.fetchall())
 
 conn.close()
-
-# print(cursor.execute('SELECT * from teste'))    
