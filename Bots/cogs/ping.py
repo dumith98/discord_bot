@@ -12,7 +12,7 @@ class Ping(commands.Cog):
 
     @commands.command()
     async def ping(self, ctx):
-        await ctx.send('pong')
+        await ctx.send(f'Ponging you Pong! \nYour name is: {ctx.author}')
 
 async def setup(bot):
     await bot.add_cog(Ping(bot))

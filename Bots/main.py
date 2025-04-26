@@ -22,9 +22,10 @@ async def main():
         await Load()
         await bot.start(TOKEN)
 
-# @bot.event
-# async def on_ready():
-#     print(f'{bot.user.name} has connected successfully!')
+@bot.event
+async def on_ready():
+    print(f'\n{bot.user.name} has connected successfully!')
+
 #
 # @bot.event
 # async def on_member_join(member):

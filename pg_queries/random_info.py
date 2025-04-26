@@ -1,24 +1,16 @@
-import os
-import psycopg2
-import dotenv
+from connection import Connect
 
-dotenv.load_dotenv()
 
-try:
-    conn = psycopg2.connect(
-                dbname=os.getenv('database'),
-                    user=os.getenv('user'),
-                        password=os.getenv('password'),
-                            host=os.getenv('host')
-                            )
-    print('Database successfully connected!')
+def CheckUser(username):
+    conn = Connect()
+    cursor = conn.cursor()
+    cursor.execute('select * from  user_table;')
 
-except:
-    print('Connection failed!')
+    for row in cursor.fetchall():
+        if username in row:
+            return True
+        else:
+            return False
 
-cursor = conn.cursor()
 
-cursor.execute('select * from  user_table;')
-print(cursor.fetchall())
-
-conn.close()
+CheckUser('Dumith')
