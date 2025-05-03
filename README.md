@@ -7,4 +7,5 @@ The file structure follows this template:
 DISCORD_TOKEN={your-bot-token}
 DISCORD_GUILD={your-guild-name}
 ```
-remember to add it to your `.gitignore` file so you don't push confidential information into your public repo.
+These info can be obtained in the `https://discord.com/developers/` website with your account.
+Remember to add it to your `.gitignore` file so you don't push confidential information into your public repo.
