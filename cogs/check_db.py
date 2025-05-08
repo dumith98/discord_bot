@@ -1,5 +1,5 @@
-# import discord
-from ../pg_queries.random_info import CheckUser
+import discord
+from Bots/pg_queries import random_info
 from discord.ext import commands
 
 class List(commands.Cog):
@@ -12,7 +12,7 @@ class List(commands.Cog):
 
     @commands.command()
     async def list(self, ctx):
-        await ctx.send(CheckUser())
+        await ctx.send(random_info.CheckUser())
 
 async def setup(bot):
     await bot.add_cog(List(bot))
