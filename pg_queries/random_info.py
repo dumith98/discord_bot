@@ -11,6 +11,3 @@ def CheckUser(username):
             return True
         else:
             return False
-
-
-CheckUser('Dumith')
