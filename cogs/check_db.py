@@ -1,5 +1,5 @@
 import discord
-from Bots/pg_queries import random_info
+from pg_queries import random_info
 from discord.ext import commands
 
 class List(commands.Cog):
@@ -9,10 +9,12 @@ class List(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         print("List command has loaded successfully!")
+        message = random_info.CheckUser()
+        print(message)
 
     @commands.command()
     async def list(self, ctx):
-        await ctx.send(random_info.CheckUser())
+        await ctx.send(f'{random_info.CheckUser()}')
 
 async def setup(bot):
     await bot.add_cog(List(bot))
