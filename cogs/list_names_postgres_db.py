@@ -12,8 +12,6 @@ class List(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         print("List command has loaded successfully!")
-        message = random_info.CheckUser()
-        print(message)
 
     @commands.command()
     async def list(self, ctx):
@@ -24,7 +22,7 @@ class List(commands.Cog):
             os.getenv("password"),
             os.getenv("host"),
         )
-        await ctx.send(f"{postgres.getAllNames()}")
+        await ctx.send(f"{postgres.getAllNames('user_table')}")
 
 
 async def setup(bot):
