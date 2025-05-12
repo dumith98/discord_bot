@@ -10,7 +10,6 @@ def main():
     load_dotenv()
 
     TOKEN = os.getenv("DISCORD_TOKEN")
-    GUILD = os.getenv("DISCORD_GUILD")
 
     bot = commands.Bot(command_prefix="/", intents=discord.Intents.all())
 
@@ -27,16 +26,6 @@ def main():
     @bot.event
     async def on_ready():
         print(f"\n{bot.user.name} has connected successfully!")
-
-    #
-    # @bot.event
-    # async def on_member_join(member):
-    #     await member.create_dm()
-    #     await member.dm_channel.send(f'Fala {member.name}!, Se esta lendo isso que dizer que deu bom!')
-    #
-    # @bot.command(name='ping')
-    # async def ping(ctx):
-    #     await ctx.send('pong')
 
     asyncio.run(main())
 
