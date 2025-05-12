@@ -1,6 +1,4 @@
-import os
 import psycopg2
-import dotenv
 
 
 class PostgresConnection:
@@ -29,14 +27,3 @@ class PostgresConnection:
 
         finally:
             self.conn.close()
-
-#############   TESTING DB CONNECTION ##############
-import dotenv
-
-dotenv.load_dotenv()
-
-
-postgres = PostgresConnection(
-    os.getenv("database"), os.getenv("user"), os.getenv("password"), os.getenv("host")
-)
-print(postgres.getAllNames("user_table"))
