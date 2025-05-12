@@ -27,11 +27,13 @@ class PostgresConnection:
             print("Connection failed!")
 
     def getAllNames(self) -> list:
-        """This method returns a lsit of tuples of each column"""
+        """This method returns a list of tuples of each column"""
         cursor = self.connect().cursor()
         cursor.execute("select * from  user_table;")
 
         return cursor.fetchall()
+
+
 
 
 postgres = PostgresConnection(
