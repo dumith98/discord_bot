@@ -3,5 +3,5 @@ COPY requirements.txt /discord-bot/
 WORKDIR /discord-bot
 # TODO: add creaton of virtualenv
 RUN pip install -r requirements.txt
-COPY ..
+COPY ./ .
 CMD ["python3", "main.py"]
