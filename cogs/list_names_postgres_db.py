@@ -3,7 +3,9 @@ import os
 from DatabaseConnections.PostgresConnection import PostgresConnection
 from discord.ext import commands
 import dotenv
-from loguru import logger
+import strutlog
+
+logger = strutlog.get_logger()
 
 
 class List(commands.Cog):

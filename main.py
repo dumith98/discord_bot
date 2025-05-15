@@ -4,7 +4,9 @@ from discord.app_commands import command
 from dotenv import load_dotenv
 from discord.ext import commands
 import asyncio
-from loguru import logger
+import strutlog
+
+logger = strutlog.get_logger()
 
 
 def main() -> None:
