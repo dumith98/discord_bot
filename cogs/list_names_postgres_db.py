@@ -3,6 +3,7 @@ import os
 from DatabaseConnections.PostgresConnection import PostgresConnection
 from discord.ext import commands
 import dotenv
+from loguru import logger
 
 
 class List(commands.Cog):
@@ -11,7 +12,7 @@ class List(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("List command has loaded successfully!")
+        logger.info("List command has loaded successfully!")
 
     @commands.command()
     async def list(self, ctx):
