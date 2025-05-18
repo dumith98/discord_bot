@@ -1,6 +1,9 @@
-
 import discord
 from discord.ext import commands
+import strutlog
+
+logger = strutlog.get_logger()
+
 
 class Ping(commands.Cog):
     def __init__(self, bot):
@@ -8,11 +11,12 @@ class Ping(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Ping command has loaded successfully!")
+        logger.info("Ping command has loaded successfully!")
 
     @commands.command()
     async def ping(self, ctx):
-        await ctx.send(f'Ponging you Pong! \nYour name is: {ctx.author}')
+        await ctx.send(f"Ponging you Pong! \nYour name is: {ctx.author}")
+
 
 async def setup(bot):
     await bot.add_cog(Ping(bot))

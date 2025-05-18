@@ -1,4 +1,7 @@
 import psycopg2
+import strutlog
+
+logger = strutlog.get_logger()
 
 
 class PostgresConnection:
@@ -16,6 +19,7 @@ class PostgresConnection:
         """This method returns a list of tuples of each column"""
         try:
             self.cursor.execute(f"select * from  {tableName};")
+            logger.info("Database successfully queried for all names.")
 
             return self.cursor.fetchall()
         finally:
