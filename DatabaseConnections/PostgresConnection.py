@@ -1,7 +1,7 @@
 import psycopg2
-import strutlog
+import structlog
 
-logger = strutlog.get_logger()
+logger = structlog.get_logger()
 
 
 class PostgresConnection:
@@ -28,6 +28,7 @@ class PostgresConnection:
     def insertName(self, tabelName: str, name: str) -> None:
         try:
             self.cursor.execute(f"INSERT INTO '{tabelName}' (name) VALUES ('{name}')")
+            logger.info(f"Successfully inserted {name} into {tabelName} ")
 
         finally:
             self.conn.close()

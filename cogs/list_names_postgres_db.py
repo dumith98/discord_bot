@@ -3,9 +3,9 @@ import os
 from DatabaseConnections.PostgresConnection import PostgresConnection
 from discord.ext import commands
 import dotenv
-import strutlog
+import structlog
 
-logger = strutlog.get_logger()
+logger = structlog.get_logger()
 
 
 class List(commands.Cog):
@@ -26,6 +26,7 @@ class List(commands.Cog):
             os.getenv("host"),
         )
         await ctx.send(f"{postgres.getAllNames('user_table')}")
+        logger.info("Sucessfully queried user_table")
 
 
 async def setup(bot):

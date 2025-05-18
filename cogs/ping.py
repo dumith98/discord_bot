@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
-import strutlog
+import structlog
 
-logger = strutlog.get_logger()
+logger = structlog.get_logger()
 
 
 class Ping(commands.Cog):

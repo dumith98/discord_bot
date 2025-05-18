@@ -1,12 +1,12 @@
 import asyncio
 import os
 import discord
-import strutlog
+import structlog
 from discord.app_commands import command
 from discord.ext import commands
 from dotenv import load_dotenv
 
-logger = strutlog.get_logger()
+logger = structlog.get_logger()
 
 
 def main() -> None:
